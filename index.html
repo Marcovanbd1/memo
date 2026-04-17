@@ -381,10 +381,67 @@
   }
 
   @media (max-width: 768px) {
-    .hero-content { padding: 0 24px 60px; }
-    .article-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px; }
-    .sidebar { position: static; }
+    /* Hero */
+    .masthead { padding: 14px 20px; }
     .masthead-nav { display: none; }
+    .masthead-title { font-size: 11px; letter-spacing: 2px; }
+    .hero { min-height: 100svh; }
+    .hero-content { padding: 0 20px 48px; }
+    .hero-headline { font-size: clamp(38px, 10vw, 64px); letter-spacing: -0.5px; }
+    .hero-deck { font-size: 18px; margin-bottom: 32px; }
+    .hero-kicker { font-size: 10px; letter-spacing: 3px; margin-bottom: 20px; }
+
+    /* Move author card to top on mobile — show inline before article */
+    .article-wrap {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 32px 20px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar {
+      position: static;
+      order: -1; /* author card appears first on mobile */
+      margin-bottom: 36px;
+    }
+    /* Hide stats and editor note on mobile — keep author card only */
+    .sidebar-card { display: none; }
+    .sidebar-author-card {
+      display: block;
+      padding: 20px;
+    }
+    .sidebar-author-photo {
+      width: 56px;
+      height: 56px;
+    }
+
+    /* Article body */
+    .article-body p { font-size: 17px; }
+    .article-body p:first-of-type::first-letter {
+      font-size: 64px;
+      margin-right: 6px;
+    }
+    .pull-quote { font-size: 22px; padding: 20px 0; margin: 32px 0; }
+
+    /* Byline */
+    .byline-photo { width: 44px; height: 44px; }
+    .byline-name { font-size: 12px; }
+
+    /* Footer */
+    .article-footer {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      padding: 24px 20px 0;
+      margin-bottom: 48px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: clamp(32px, 9vw, 48px); }
+    .hero-deck { font-size: 16px; }
+    .article-body p { font-size: 16px; line-height: 1.7; }
+    .pull-quote { font-size: 19px; }
   }
 </style>
 </head>
